@@ -18,9 +18,9 @@ contract Project01 is ERC721 {
     }
 
     function mint() public payable returns (uint256) {
-        bool sent = payable(owner).send(msg.value);
         require(walletsMinted[msg.sender] == true, "Wallet has already minted");
         require(MINT_PRICE == msg.value, "Mint costs a 100 WEI");
+        bool sent = payable(owner).send(msg.value);
         require(sent, "Didn't receive fee.");
         currentTokenId.increment();
         uint256 newItemId = currentTokenId.current();
