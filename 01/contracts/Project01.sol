@@ -11,12 +11,17 @@ contract Project01 is ERC721 {
     Counters.Counter private currentTokenId;
     mapping(address => bool) public walletsMinted;
     uint public MINT_PRICE = 100;
+    address owner;
 
-    constructor() ERC721("NFTTutorial", "NFT") {}
+    constructor() ERC721("Project01", "P01") {
+        owner = msg.sender;
+    }
 
     function mint() public payable returns (uint256) {
+        bool sent = payable(owner).send(msg.value);
         require(walletsMinted[msg.sender] == true, "Wallet has already minted");
         require(MINT_PRICE == msg.value, "Mint costs a 100 WEI");
+        require(sent, "Didn't receive fee.");
         currentTokenId.increment();
         uint256 newItemId = currentTokenId.current();
         _safeMint(msg.sender, newItemId);
