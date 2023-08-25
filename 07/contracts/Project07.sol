@@ -13,7 +13,7 @@ contract Project07 is ERC721 {
     uint public MINT_PRICE;
     address owner;
 
-    constructor(uint _price) ERC721("Project01", "P01") {
+    constructor(uint _price) ERC721("Project07", "P07") {
         owner = msg.sender;
         MINT_PRICE = _price;
     }
