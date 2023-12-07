@@ -51,10 +51,3 @@ export default function Home() {
     </main>
   )
 }
-// const checkProvider = async () => {
-//   const { ethereum } = window as any;
-//   try {
-//     const provider = new BrowserProvider(ethereum);
-//     setProvider(provider);
-//   } catch (e: any) { }
-// };
