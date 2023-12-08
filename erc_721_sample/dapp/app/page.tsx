@@ -21,32 +21,24 @@ export default function Home() {
   };
 
 
-  async function setData() {
+  async function mint() {
     const temp = await mainProvider?.getSigner();
     if (temp) {
       const contract = await _intializeContract(temp)
-      const transaction = await contract.setData("qwdqwdqwd");
+      const transaction = await contract.mint();
       await transaction.wait();
-    }
-  }
-  async function getData() {
-    const temp = await mainProvider?.getSigner();
-    if (temp) {
-      const contract = await _intializeContract(temp)
-      const data = await contract.data()
-      setdata(data)
-    }
-  }
+      console.log(transaction);
 
+    }
+  }
 
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
+    <main >
       <p>Balance: {userBalance}</p>
       <p>Current Data: {data}</p>
       <button onClick={connectWallet}> {walletKey ? walletKey : "Connect Wallet"}</button>
-      <button onClick={getData}> Get Data</button>
-      <button onClick={setData}> Set Data</button>
+      <button onClick={mint}>Mint NFT</button>
     </main>
   )
 }
