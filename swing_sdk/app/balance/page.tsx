@@ -1,9 +1,9 @@
-import CheckBalanceForm from "./(forms)/page";
+import CheckBalanceForm from "./(forms)/check-balance-form,";
 
 export default function Balance() {
   return (
-    <div className="">
+    <>
       <CheckBalanceForm />
-    </div>
+    </>
   );
 }
