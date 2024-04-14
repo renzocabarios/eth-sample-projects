@@ -20,7 +20,7 @@ export default function ContractsList() {
   return (
     <div className="grid grid-cols-4 gap-2">
       {contracts.map((contract) => {
-        return <ContractCard contract={contract} />;
+        return <ContractCard contract={contract} key={contract.id} />;
       })}
     </div>
   );
