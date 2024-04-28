@@ -1,5 +1,9 @@
 # eth-sample-projects
 
+## NOTES
+
+- `npx hardhat verify --network sepolia DEPLOYED_CONTRACT_ADDRESS` to verify SC
+
 ## PROJECTS
 - ```1. A wallet can only mint once. You cannot mint more than once even if you pay ETH```
 
